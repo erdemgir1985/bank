@@ -17,7 +17,7 @@ createAcc.addEventListener("click", function() {
   }
 
   // aynı isimde hesap var mı kontrol et
-  const varMi = accounts.find(acc => acc.name === name);
+  const varMi = accounts.find(acc => acc.name.toLowerCase() === name.toLowerCase());
   if (varMi) {
     output.innerHTML += `⚠️ "${name}" adlı bir hesap zaten var!<br>`;
     return;
@@ -36,7 +36,7 @@ createAcc.addEventListener("click", function() {
 // 5. adım: Para yatırma işlemi
 depositBtn.addEventListener("click", () => {
   const depositName = prompt("Hesap sahibinin adını girin:");
-  const varMideposit = accounts.find(acc => acc.name === depositName);
+  const varMideposit = accounts.find(acc => acc.name.toLowerCase() === depositName.toLowerCase());
 
   if (!varMideposit) {
     output.innerHTML += `⚠️ "${depositName}" adlı bir hesap bulunamadı!<br>`;
@@ -62,7 +62,7 @@ depositBtn.addEventListener("click", () => {
 // 6. adım: Para çekme işlemi
 withdrawBtn.addEventListener("click", () => {
   const withdrawName = prompt("Hesap sahibinin adını girin:");
-  const varMiwithdraw = accounts.find(acc => acc.name === withdrawName);
+  const varMiwithdraw = accounts.find(acc => acc.name.toLowerCase() === withdrawName.toLowerCase());
 
   if (!varMiwithdraw) {
     output.innerHTML += `⚠️ "${withdrawName}" adlı bir hesap bulunamadı!<br>`;
@@ -94,7 +94,7 @@ withdrawBtn.addEventListener("click", () => {
 // 7. adım: Hesap bilgilerini görüntüleme
 infoBtn.addEventListener("click", () => {
   const infoName = prompt("Bilgisini görmek istediğiniz hesabın adını girin:");
-  const varMiInfo = accounts.find(acc => acc.name === infoName);
+  const varMiInfo = accounts.find(acc => acc.name.toLowerCase() === infoName.toLowerCase());
 
   if (!varMiInfo) {
     output.innerHTML += `⚠️ "${infoName}" adlı bir hesap bulunamadı!<br>`;
